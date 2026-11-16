@@ -5,7 +5,7 @@ Entrada padrão:
     data/base_estruturada_LENAD_III.xlsx
 
 Saídas:
-    outputs/lenad_*.pdf
+    outputs/lenad/lenad_*.pdf
 
 O módulo utiliza exclusivamente estatísticas agregadas publicadas no Caderno
 Temático do LENAD III e transcritas para a planilha estruturada. Não estima
@@ -24,7 +24,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data" / "base_estruturada_LENAD_III.xlsx"
-DEFAULT_OUTPUT = ROOT / "outputs"
+DEFAULT_OUTPUT = ROOT / "outputs" / "lenad"
 
 
 def carregar_dados(caminho: Path) -> dict[str, pd.DataFrame]:
