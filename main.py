@@ -36,7 +36,7 @@ def main():
     analisar_metricas(grafo)
 
     # Exportação do grafo para visualização e edição no Gephi
-    pasta_outputs = Path("outputs")
+    pasta_outputs = Path("outputs") / "questionario"
     pasta_outputs.mkdir(parents=True, exist_ok=True)
     caminho_gexf = pasta_outputs / "grafo_apostas.gexf"
     nx.write_gexf(grafo, caminho_gexf)
@@ -48,9 +48,9 @@ def main():
 
     print("\n===== ARQUIVOS GERADOS =====")
     print(f"- {caminho_gexf}")
-    print("- outputs/ranking_canais.png")
-    print("- outputs/distribuicao_faixa_etaria.png")
-    print("- outputs/exposicao_jogos_azar.png")
+    print("- outputs/questionario/ranking_canais.png")
+    print("- outputs/questionario/distribuicao_faixa_etaria.png")
+    print("- outputs/questionario/exposicao_jogos_azar.png")
     print("\nImporte o arquivo GEXF no Gephi para montar a visualização do grafo.")
 
 
