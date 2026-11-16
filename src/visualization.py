@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 # Caminho onde as visualizações serão salvas
-PASTA_OUTPUTS = Path("outputs")
+PASTA_OUTPUTS = Path("outputs") / "questionario"
 
 # Colunas da planilha original
 COLUNA_IDADE = "Qual é a sua faixa etária?"
