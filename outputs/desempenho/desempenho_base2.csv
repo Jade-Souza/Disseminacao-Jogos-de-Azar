@@ -1,3 +1,3 @@
 ﻿base,origem,algoritmo,vertices_grafo,arestas_grafo,tempo_mediano_ms,tempo_medio_ms,vertices_visitados,repeticoes
-Base 2 - Divulgação,YouTube,BFS,47,52,0.006725999999999999,0.007231962,22,1000
-Base 2 - Divulgação,Instagram,BFS,47,52,0.00762,0.008179243,26,1000
+Base 2 - Divulgação,YouTube,BFS,47,52,0.006474,0.007056255,22,1000
+Base 2 - Divulgação,Instagram,BFS,47,52,0.0072735000000000005,0.007604473,26,1000
