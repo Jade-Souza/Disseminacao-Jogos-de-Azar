@@ -1,57 +1,68 @@
-from pathlib import Path
+"""Ponto de entrada das análises das Bases 1 e 2."""
 
-import networkx as nx
+import argparse
 
 from src.graph_builder import carregar_dados, construir_grafo
 from src.bfs import busca_em_largura
 from src.dfs import busca_em_profundidade
 from src.metrics import analisar_metricas
-
 from src.visualization import (
     gerar_ranking_canais,
     gerar_grafico_faixa_etaria,
     gerar_grafico_exposicao,
 )
+from pathlib import Path
+import networkx as nx
 
 
-def main():
-    # Carregamento dos dados
+def executar_base1():
+    """Executa a análise bipartida do questionário (Base 1)."""
     dados = carregar_dados()
-
-    # Construção do grafo bipartido
     grafo = construir_grafo(dados)
 
-    # Execução dos algoritmos
     inicio = "Instagram"
     resultado_bfs = busca_em_largura(grafo, inicio)
     resultado_dfs = busca_em_profundidade(grafo, inicio)
 
-    print("\n===== BUSCA EM LARGURA (BFS) =====")
+    print("\n===== BUSCA EM LARGURA (BFS) — BASE 1 =====")
     print(f"Total visitado: {len(resultado_bfs)}")
-
-    print("\n===== BUSCA EM PROFUNDIDADE (DFS) =====")
+    print("\n===== BUSCA EM PROFUNDIDADE (DFS) — BASE 1 =====")
     print(f"Total visitado: {len(resultado_dfs)}")
 
-    # Análise das métricas
     analisar_metricas(grafo)
 
-    # Exportação do grafo para visualização e edição no Gephi
     pasta_outputs = Path("outputs") / "questionario"
     pasta_outputs.mkdir(parents=True, exist_ok=True)
     caminho_gexf = pasta_outputs / "grafo_apostas.gexf"
     nx.write_gexf(grafo, caminho_gexf)
 
-    # Gráficos estatísticos. A disposição visual do grafo é feita no Gephi.
     gerar_ranking_canais(grafo)
     gerar_grafico_faixa_etaria(dados)
     gerar_grafico_exposicao(dados)
 
-    print("\n===== ARQUIVOS GERADOS =====")
-    print(f"- {caminho_gexf}")
-    print("- outputs/questionario/ranking_canais.png")
-    print("- outputs/questionario/distribuicao_faixa_etaria.png")
-    print("- outputs/questionario/exposicao_jogos_azar.png")
-    print("\nImporte o arquivo GEXF no Gephi para montar a visualização do grafo.")
+    print("\nArquivos da Base 1 salvos em outputs/questionario/.")
+
+
+def executar_base2():
+    """Executa a análise dirigida de três camadas (Base 2)."""
+    from src.base2_analysis import executar_analise
+    executar_analise()
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Análises das redes de influência dos jogos de azar online."
+    )
+    parser.add_argument(
+        "--base", choices=["1", "2", "todas"], default="1",
+        help="Base a analisar. O padrão 1 mantém o comportamento anterior."
+    )
+    args = parser.parse_args()
+
+    if args.base in ("1", "todas"):
+        executar_base1()
+    if args.base in ("2", "todas"):
+        executar_base2()
 
 
 if __name__ == "__main__":
