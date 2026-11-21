@@ -35,7 +35,7 @@ Disseminacao-Jogos-de-Azar/
 │   ├── divulgacao_youtube_instagram/ # Resultados da Base 2
 │   ├── lenad/                     # Gráficos da Base 3
 │   ├── desempenho/                # Resultados dos benchmarks
-│   └── grafo_base2.pdf            # Visualização final organizada no Gephi
+│  
 ├── src/
 │   ├── bfs.py                     # Busca em largura
 │   ├── dfs.py                     # Busca em profundidade

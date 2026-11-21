@@ -1,13 +1,13 @@
-algoritmo,participantes,vertices_grafo,arestas_grafo,tempo_mediano_ms,tempo_medio_ms,vertices_visitados,repeticoes
-BFS,109,118,264,0.044988,0.04625475,118,200
-DFS,109,118,264,0.0575715,0.06144172,118,200
-BFS,250,259,629,0.111177,0.11413769,259,200
-DFS,250,259,629,0.124441,0.1271893,259,200
-BFS,500,509,1224,0.206978,0.213254415,509,200
-DFS,500,509,1224,0.2445215,0.253904645,509,200
-BFS,1000,1009,2465,0.43291,0.44626488,1009,200
-DFS,1000,1009,2465,0.5100605,0.532297765,1009,200
-BFS,2000,2009,4995,0.8367315,0.874202995,2009,200
-DFS,2000,2009,4995,0.965694,0.97741965,2009,200
-BFS,4000,4009,9984,1.621067,1.679587605,4009,200
-DFS,4000,4009,9984,1.9370235,1.99428243,4009,200
+﻿base,algoritmo,participantes,vertices_grafo,arestas_grafo,tempo_mediano_ms,tempo_medio_ms,vertices_visitados,repeticoes
+Grafos sintéticos - estrutura da Base 1,BFS,109,118,264,0.0446575,0.04710481,118,200
+Grafos sintéticos - estrutura da Base 1,DFS,109,118,264,0.056167,0.062751125,118,200
+Grafos sintéticos - estrutura da Base 1,BFS,250,259,629,0.104836,0.115468915,259,200
+Grafos sintéticos - estrutura da Base 1,DFS,250,259,629,0.1250965,0.132975685,259,200
+Grafos sintéticos - estrutura da Base 1,BFS,500,509,1224,0.2210065,0.238579305,509,200
+Grafos sintéticos - estrutura da Base 1,DFS,500,509,1224,0.25192349999999997,0.27308356500000003,509,200
+Grafos sintéticos - estrutura da Base 1,BFS,1000,1009,2465,0.4269145,0.458466425,1009,200
+Grafos sintéticos - estrutura da Base 1,DFS,1000,1009,2465,0.517415,0.56441411,1009,200
+Grafos sintéticos - estrutura da Base 1,BFS,2000,2009,4995,0.876565,0.93265077,2009,200
+Grafos sintéticos - estrutura da Base 1,DFS,2000,2009,4995,1.0273025,1.114202825,2009,200
+Grafos sintéticos - estrutura da Base 1,BFS,4000,4009,9984,1.6558655,1.75030401,4009,200
+Grafos sintéticos - estrutura da Base 1,DFS,4000,4009,9984,1.99953,2.050844105,4009,200

@@ -1,0 +1,839 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2026-11-21">
+    <creator>NetworkX 3.7</creator>
+  </meta>
+  <graph defaultedgetype="directed" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="8" title="peso" type="long" />
+      <attribute id="9" title="tipo_relacao" type="string" />
+      <attribute id="10" title="rede" type="string" />
+    </attributes>
+    <attributes mode="static" class="node">
+      <attribute id="0" title="tipo" type="string" />
+      <attribute id="1" title="camada" type="long" />
+      <attribute id="2" title="rede" type="string" />
+      <attribute id="3" title="ordem_bfs_youtube" type="long" />
+      <attribute id="4" title="ordem_bfs_instagram" type="long" />
+      <attribute id="5" title="id_registro" type="string" />
+      <attribute id="6" title="link" type="string" />
+      <attribute id="7" title="plataforma" type="string" />
+    </attributes>
+    <nodes>
+      <node id="rede::Instagram" label="Instagram">
+        <attvalues>
+          <attvalue for="0" value="rede_social" />
+          <attvalue for="1" value="0" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="1" />
+        </attvalues>
+      </node>
+      <node id="rede::YouTube" label="YouTube">
+        <attvalues>
+          <attvalue for="0" value="rede_social" />
+          <attvalue for="1" value="0" />
+          <attvalue for="2" value="YouTube" />
+          <attvalue for="3" value="1" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="perfil::P001" label="Cerol">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="YouTube" />
+          <attvalue for="5" value="P001" />
+          <attvalue for="6" value="https://www.youtube.com/@cerol/featured" />
+          <attvalue for="3" value="2" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="perfil::P002" label="YURI22">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="YouTube" />
+          <attvalue for="5" value="P002" />
+          <attvalue for="6" value="https://www.youtube.com/@yuri22ofc" />
+          <attvalue for="3" value="3" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="perfil::P003" label="Buxexa">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="YouTube" />
+          <attvalue for="5" value="P003" />
+          <attvalue for="6" value="https://www.youtube.com/@BuxexaOficial" />
+          <attvalue for="3" value="4" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="perfil::P004" label="LUUK7">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="YouTube" />
+          <attvalue for="5" value="P004" />
+          <attvalue for="6" value="https://www.youtube.com/@Luuuk7" />
+          <attvalue for="3" value="5" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="perfil::P005" label="SWZA7 PRIME">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="YouTube" />
+          <attvalue for="5" value="P005" />
+          <attvalue for="6" value="https://www.youtube.com/channel/UCg2ZnWipuacqbHhAb9dppxQ" />
+          <attvalue for="3" value="6" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="perfil::P006" label="Análise de Hoje">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="YouTube" />
+          <attvalue for="5" value="P006" />
+          <attvalue for="6" value="https://www.youtube.com/@analiseshoje" />
+          <attvalue for="3" value="7" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="perfil::P007" label="Dinheiro Digital">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="YouTube" />
+          <attvalue for="5" value="P007" />
+          <attvalue for="6" value="https://www.youtube.com/@DineroDigitalESP" />
+          <attvalue for="3" value="8" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="perfil::P008" label="DIGITAL PASO A PASO">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="YouTube" />
+          <attvalue for="5" value="P008" />
+          <attvalue for="6" value="https://www.youtube.com/@digitalpasoapaso" />
+          <attvalue for="3" value="9" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="perfil::P009" label="Canal Mundo">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="YouTube" />
+          <attvalue for="5" value="P009" />
+          <attvalue for="6" value="https://www.youtube.com/@CanalMundoRoyal" />
+          <attvalue for="3" value="10" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="perfil::P010" label="Bruno JGDR">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="YouTube" />
+          <attvalue for="5" value="P010" />
+          <attvalue for="6" value="https://www.youtube.com/@elbrunojgdr" />
+          <attvalue for="3" value="11" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="perfil::P011" label="GB12">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="YouTube" />
+          <attvalue for="5" value="P011" />
+          <attvalue for="6" value="https://www.youtube.com/@gb0012" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="perfil::P012" label="reidoscantos_">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="5" value="P012" />
+          <attvalue for="6" value="https://www.instagram.com/reidoscantos_/" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="perfil::P013" label="betandobr">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="5" value="P013" />
+          <attvalue for="6" value="https://www.instagram.com/betandobr/" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="3" />
+        </attvalues>
+      </node>
+      <node id="perfil::P014" label="apostasdomago">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="5" value="P014" />
+          <attvalue for="6" value="https://www.instagram.com/apostasdomago/" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="4" />
+        </attvalues>
+      </node>
+      <node id="perfil::P015" label="albertofs_net">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="5" value="P015" />
+          <attvalue for="6" value="https://www.instagram.com/albertofs_neto/" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="5" />
+        </attvalues>
+      </node>
+      <node id="perfil::P016" label="victorslotss_">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="5" value="P016" />
+          <attvalue for="6" value="https://www.instagram.com/victorslotss_/" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="6" />
+        </attvalues>
+      </node>
+      <node id="perfil::P017" label="davidbet10K">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="5" value="P017" />
+          <attvalue for="6" value="https://www.instagram.com/davidbet10k/" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="7" />
+        </attvalues>
+      </node>
+      <node id="perfil::P018" label="iguinho69_job">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="5" value="P018" />
+          <attvalue for="6" value="https://www.instagram.com/iguinho69_job/" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="8" />
+        </attvalues>
+      </node>
+      <node id="perfil::P019" label="raulerlich">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="5" value="P019" />
+          <attvalue for="6" value="https://www.instagram.com/raulerlich/" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="9" />
+        </attvalues>
+      </node>
+      <node id="perfil::P020" label="lk7oficial_">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="5" value="P020" />
+          <attvalue for="6" value="https://www.instagram.com/lk7oficial_/" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="10" />
+        </attvalues>
+      </node>
+      <node id="perfil::P021" label="rocha_tips">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="5" value="P021" />
+          <attvalue for="6" value="https://www.instagram.com/rocha_tips/" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="11" />
+        </attvalues>
+      </node>
+      <node id="perfil::P022" label="moana.oofc">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="5" value="P022" />
+          <attvalue for="6" value="https://www.instagram.com/moana.oofc/" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="12" />
+        </attvalues>
+      </node>
+      <node id="perfil::P023" label="agente_pop">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="5" value="P023" />
+          <attvalue for="6" value="https://www.instagram.com/agente_pop/" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="13" />
+        </attvalues>
+      </node>
+      <node id="perfil::P024" label="supergreen.apostas">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="5" value="P024" />
+          <attvalue for="6" value="https://www.instagram.com/supergreen.apostas/" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="14" />
+        </attvalues>
+      </node>
+      <node id="perfil::P025" label="marcosmatosfut">
+        <attvalues>
+          <attvalue for="0" value="perfil" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="Instagram" />
+          <attvalue for="5" value="P025" />
+          <attvalue for="6" value="https://www.instagram.com/marcosmatosfut/" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="15" />
+        </attvalues>
+      </node>
+      <node id="casa::1win" label="1win">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="1win" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="23" />
+        </attvalues>
+      </node>
+      <node id="casa::4484Bet" label="4484Bet">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="4484Bet" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="19" />
+        </attvalues>
+      </node>
+      <node id="casa::4WIN" label="4WIN">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="4WIN" />
+          <attvalue for="3" value="13" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="casa::50bets" label="50bets">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="50bets" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="18" />
+        </attvalues>
+      </node>
+      <node id="casa::BLBMK" label="BLBMK">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="BLBMK" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="20" />
+        </attvalues>
+      </node>
+      <node id="casa::Betano" label="Betano">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="Betano" />
+          <attvalue for="3" value="21" />
+          <attvalue for="4" value="24" />
+        </attvalues>
+      </node>
+      <node id="casa::Esporte da Sorte" label="Esporte da Sorte">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="Esporte da Sorte" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="25" />
+        </attvalues>
+      </node>
+      <node id="casa::Estrela Bet" label="Estrela Bet">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="Estrela Bet" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="16" />
+        </attvalues>
+      </node>
+      <node id="casa::JONBET" label="JONBET">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="JONBET" />
+          <attvalue for="3" value="14" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="casa::KHKMK" label="KHKMK">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="KHKMK" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="21" />
+        </attvalues>
+      </node>
+      <node id="casa::L77BET" label="L77BET">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="L77BET" />
+          <attvalue for="3" value="19" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="casa::Lottu" label="Lottu">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="Lottu" />
+          <attvalue for="3" value="15" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="casa::Mudar777" label="Mudar777">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="Mudar777" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="22" />
+        </attvalues>
+      </node>
+      <node id="casa::POP555" label="POP555">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="POP555" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="26" />
+        </attvalues>
+      </node>
+      <node id="casa::Scoretabs" label="Scoretabs">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="Scoretabs" />
+          <attvalue for="3" value="20" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="casa::Skin.Club" label="Skin.Club">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="Skin.Club" />
+          <attvalue for="3" value="17" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="casa::bet365" label="bet365">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="bet365" />
+          <attvalue for="3" value="22" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="casa::betwinner" label="betwinner">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="betwinner" />
+          <attvalue for="3" value="0" />
+          <attvalue for="4" value="17" />
+        </attvalues>
+      </node>
+      <node id="casa::brasawin777" label="brasawin777">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="brasawin777" />
+          <attvalue for="3" value="18" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+      <node id="casa::onabet" label="onabet">
+        <attvalues>
+          <attvalue for="0" value="plataforma" />
+          <attvalue for="1" value="2" />
+          <attvalue for="7" value="onabet" />
+          <attvalue for="3" value="16" />
+          <attvalue for="4" value="0" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="rede::Instagram" target="perfil::P012" id="0" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::Instagram" target="perfil::P013" id="1" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::Instagram" target="perfil::P014" id="2" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::Instagram" target="perfil::P015" id="3" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::Instagram" target="perfil::P016" id="4" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::Instagram" target="perfil::P017" id="5" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::Instagram" target="perfil::P018" id="6" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::Instagram" target="perfil::P019" id="7" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::Instagram" target="perfil::P020" id="8" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::Instagram" target="perfil::P021" id="9" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::Instagram" target="perfil::P022" id="10" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::Instagram" target="perfil::P023" id="11" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::Instagram" target="perfil::P024" id="12" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::Instagram" target="perfil::P025" id="13" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::YouTube" target="perfil::P001" id="14" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::YouTube" target="perfil::P002" id="15" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::YouTube" target="perfil::P003" id="16" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::YouTube" target="perfil::P004" id="17" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::YouTube" target="perfil::P005" id="18" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::YouTube" target="perfil::P006" id="19" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::YouTube" target="perfil::P007" id="20" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::YouTube" target="perfil::P008" id="21" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::YouTube" target="perfil::P009" id="22" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::YouTube" target="perfil::P010" id="23" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="rede::YouTube" target="perfil::P011" id="24" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="rede_perfil" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P001" target="casa::4WIN" id="25" weight="8">
+        <attvalues>
+          <attvalue for="8" value="8" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P001" target="casa::JONBET" id="26" weight="2">
+        <attvalues>
+          <attvalue for="8" value="2" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P001" target="casa::Lottu" id="27" weight="17">
+        <attvalues>
+          <attvalue for="8" value="17" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P001" target="casa::onabet" id="28" weight="16">
+        <attvalues>
+          <attvalue for="8" value="16" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P002" target="casa::Skin.Club" id="29" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P003" target="casa::Lottu" id="30" weight="4">
+        <attvalues>
+          <attvalue for="8" value="4" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P003" target="casa::onabet" id="31" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P004" target="casa::brasawin777" id="32" weight="7">
+        <attvalues>
+          <attvalue for="8" value="7" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P005" target="casa::L77BET" id="33" weight="2">
+        <attvalues>
+          <attvalue for="8" value="2" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P006" target="casa::Scoretabs" id="34" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P007" target="casa::Betano" id="35" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P008" target="casa::bet365" id="36" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P009" target="casa::bet365" id="37" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P010" target="casa::bet365" id="38" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P011" target="casa::Betano" id="39" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="YouTube" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P012" target="casa::Estrela Bet" id="40" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="Instagram" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P013" target="casa::betwinner" id="41" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="Instagram" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P014" target="casa::50bets" id="42" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="Instagram" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P016" target="casa::4484Bet" id="43" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="Instagram" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P016" target="casa::BLBMK" id="44" weight="2">
+        <attvalues>
+          <attvalue for="8" value="2" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="Instagram" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P016" target="casa::KHKMK" id="45" weight="2">
+        <attvalues>
+          <attvalue for="8" value="2" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="Instagram" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P016" target="casa::Mudar777" id="46" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="Instagram" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P017" target="casa::1win" id="47" weight="4">
+        <attvalues>
+          <attvalue for="8" value="4" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="Instagram" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P017" target="casa::Betano" id="48" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="Instagram" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P018" target="casa::Betano" id="49" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="Instagram" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P019" target="casa::Esporte da Sorte" id="50" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="Instagram" />
+        </attvalues>
+      </edge>
+      <edge source="perfil::P023" target="casa::POP555" id="51" weight="1">
+        <attvalues>
+          <attvalue for="8" value="1" />
+          <attvalue for="9" value="perfil_plataforma" />
+          <attvalue for="10" value="Instagram" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>
