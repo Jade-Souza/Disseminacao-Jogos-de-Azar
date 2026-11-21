@@ -13,7 +13,9 @@ install:
 	$(PIP) install -r requirements.txt
 
 # Remove somente resultados gerados e caches.
-# Preserva os dados de entrada e outputs/grafo_base2.pdf (Gephi).
+# Preserva os dados de entrada e os arquivos finais do Gephi.
+# outputs/grafo_base1_gephi.png
+# outputs/grafo_base2.pdf
 clean:
 	rm -rf outputs/questionario
 	rm -rf outputs/divulgacao_youtube_instagram

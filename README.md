@@ -27,29 +27,33 @@ Os arquivos agregados permitem consultar frequências e distribuições, mas nã
 
 ```text
 Disseminacao-Jogos-de-Azar/
-├── data/                         # Dados de entrada locais (não versionados)
+├── data/                              # Dados de entrada locais (não versionados)
 ├── docs/
-│   ├── README_ZENODO.md           # Informações sobre o depósito dos dados
-│   └── figuras_tabelas_overleaf.tex # Figuras e tabelas para inclusão no Overleaf
+│   ├── README_ZENODO.md               # Informações sobre o depósito dos dados
+│   └── figuras_tabelas_overleaf.tex   # Figuras e tabelas para inclusão no Overleaf
 ├── outputs/
-│   ├── questionario/              # Resultados da Base 1
-│   ├── divulgacao_youtube_instagram/ # Resultados da Base 2
-│   ├── lenad/                     # Gráficos da Base 3
-│   ├── desempenho/                # Resultados dos benchmarks
-│  
+│   ├── questionario/                  # Resultados da Base 1
+│   ├── divulgacao_youtube_instagram/  # Resultados da Base 2
+│   ├── lenad/                         # Gráficos da Base 3
+│   ├── desempenho/                    # Resultados dos benchmarks
+│   ├── zenodo/                        # Arquivos relacionados ao depósito
+│   ├── grafo_gephi.png                # Visualização da Base 1
+│   └── grafo_apostas2.pdf             # Visualização da Base 2
 ├── src/
-│   ├── bfs.py                     # Busca em largura
-│   ├── dfs.py                     # Busca em profundidade
-│   ├── graph_builder.py           # Construção do grafo da Base 1
-│   ├── metrics.py                 # Métricas dos grafos
-│   ├── visualization.py           # Visualizações da Base 1
+│   ├── bfs.py                         # Busca em largura
+│   ├── dfs.py                         # Busca em profundidade
+│   ├── graph_builder.py               # Construção do grafo da Base 1
+│   ├── metrics.py                     # Métricas dos grafos
+│   ├── visualization.py               # Visualizações da Base 1
 │   ├── divulgacao_youtube_instagram.py # Análise da Base 2
-│   └── lenad_visualization.py     # Gráficos estatísticos da Base 3
-├── .gitignore                    # Arquivos e pastas ignorados pelo Git
-├── benchmark_bfs_dfs.py          # Experimentos de desempenho BFS/DFS
-├── main.py                       # Ponto de entrada das Bases 1 e 2
-├── Makefile                      # Instalação, limpeza e execução
-└── requirements.txt              # Dependências Python
+│   ├── base2_visualization.py         # Visualizações da Base 2
+│   └── lenad_visualization.py         # Gráficos estatísticos da Base 3
+├── .gitignore                         # Arquivos e pastas ignorados pelo Git
+├── benchmark_bfs_dfs.py               # Experimentos de desempenho BFS/DFS
+├── main.py                            # Ponto de entrada das Bases 1 e 2
+├── preparar_zenodo.py                 # Preparação dos arquivos para o Zenodo
+├── Makefile                           # Instalação, limpeza e execução
+└── requirements.txt                   # Dependências Python
 ```
 
 > A pasta `data/` é necessária para executar as análises, mas não é publicada neste repositório. Os arquivos de entrada devem ser obtidos e colocados localmente nessa pasta, respeitando os nomes e formatos esperados pelos scripts. O conteúdo agregado do Zenodo não substitui todos os dados de entrada necessários para reproduzir os grafos completos.
@@ -70,12 +74,12 @@ make clean
 make run
 ```
 
-O que cada comando faz:
+### O que cada comando faz
 
 | Comando | Função |
 |---|---|
 | `make` | Instala as dependências listadas em `requirements.txt`. Prioriza o Python do ambiente virtual `.venv`, caso exista. |
-| `make clean` | Remove os resultados gerados das análises e os caches, preservando os dados de entrada e o arquivo `outputs/grafo_base2.pdf`. |
+| `make clean` | Remove os resultados gerados das análises e os caches, preservando os dados de entrada e os arquivos `outputs/grafo_gephi.png` e `outputs/grafo_apostas2.pdf`. |
 | `make run` | Executa as análises das Bases 1 e 2, os gráficos da Base 3 e os benchmarks de BFS e DFS. |
 
 ### Execuções individuais
@@ -96,8 +100,13 @@ Os resultados são organizados nas pastas dentro de `outputs/`:
 - **`outputs/divulgacao_youtube_instagram/`**: estrutura do grafo, tabelas de vértices e arestas, resultados da BFS e rankings da Base 2.
 - **`outputs/lenad/`**: gráficos estatísticos da Base 3.
 - **`outputs/desempenho/`**: resultados dos experimentos de desempenho.
+ 
+As visualizações finais organizadas no Gephi são mantidas diretamente na pasta `outputs/`:
 
-A visualização final da Base 2, organizada no Gephi, é mantida em `outputs/grafo_base2.pdf`. O script da Base 2 exporta a estrutura e os atributos do grafo, sem gerar uma segunda imagem dessa visualização.
+- `outputs/grafo_gephi.png`: visualização da Base 1.
+- `outputs/grafo_apostas2.pdf`: visualização da Base 2.
+
+O script da Base 2 exporta a estrutura e os atributos do grafo, sem gerar uma segunda imagem dessa visualização.
 
 ## Metodologia e limitações
 
@@ -107,8 +116,10 @@ A visualização final da Base 2, organizada no Gephi, é mantida em `outputs/gr
 - As datas da Base 2 correspondem às datas de publicação registradas na coleta.
 - Diferenças na quantidade de registros identificados entre YouTube e Instagram não devem ser interpretadas isoladamente como diferenças na quantidade real de publicidade em cada rede.
 - As bases possuem unidades de análise diferentes e devem ser interpretadas separadamente.
-- O PGSI é um instrumento de rastreamento/classificação de risco, não um diagnóstico clínico. Os denominadores podem variar entre tabelas, itens podem se sobrepor e associações observadas não demonstram causalidade.
+- O PGSI é um instrumento de rastreamento e classificação de risco, não um diagnóstico clínico. Os denominadores podem variar entre tabelas, itens podem se sobrepor e associações observadas não demonstram causalidade.
 
 ## Reprodutibilidade
 
-Os dados de entrada não são versionados neste repositório. Para executar as análises, mantenha os arquivos necessários na pasta local `data/`, conforme os nomes e formatos esperados pelos scripts. Consulte o código e a documentação do depósito no Zenodo para compreender a origem, o tratamento e as limitações dos dados disponibilizados publicamente.
+Os dados de entrada não são versionados neste repositório. Para executar as análises, mantenha os arquivos necessários na pasta local `data/`, conforme os nomes e formatos esperados pelos scripts.
+
+Consulte o código e a documentação do depósito no Zenodo para compreender a origem, o tratamento e as limitações dos dados disponibilizados publicamente.
