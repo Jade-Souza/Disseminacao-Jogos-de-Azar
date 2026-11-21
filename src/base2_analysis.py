@@ -233,8 +233,6 @@ def executar_analise(caminho: Path = ARQUIVO_ENTRADA) -> nx.DiGraph:
     for rede, valores in metricas["distribuicao_por_rede"].items():
         print(f"- {rede}: {valores}")
 
-    from src.base2_visualization import gerar_visualizacoes
-    gerar_visualizacoes(grafo, dados, PASTA_SAIDA)
     print(f"\nResultados salvos em: {PASTA_SAIDA}")
     return grafo
 
