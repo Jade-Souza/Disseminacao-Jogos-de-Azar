@@ -17,8 +17,7 @@ As bases são analisadas separadamente porque representam unidades e relações 
 - `src/bfs.py` e `src/dfs.py`: implementações de BFS e DFS para a Base 1.
 - `src/metrics.py`: métricas estruturais da Base 1.
 - `src/visualization.py`: gráficos estatísticos da Base 1.
-- `src/base2_analysis.py`: leitura, construção, métricas e exportação do grafo da Base 2.
-- `src/base2_visualization.py`: visualizações da Base 2.
+- `src/divulgacao_youtube_instagram.py`: leitura, construção, BFS, métricas e exportação do grafo de divulgação.
 - `src/lenad_visualization.py`: gráficos estatísticos do LENAD III.
 - `data/dados_originais.xlsx`: dados do questionário (Base 1).
 - `data/Pasta(base_youtube_instagram).csv`: registros coletados no YouTube e Instagram (Base 2).
@@ -54,25 +53,23 @@ python src/lenad_visualization.py
 
 A execução gera o GEXF e os gráficos em `outputs/questionario/`. O GEXF pode ser importado no Gephi para configurar a disposição espacial, cores, tamanhos e rótulos da visualização final.
 
-### Base 2 — YouTube e Instagram
+### Divulgação no YouTube e Instagram
 
-O script lê o CSV separado por ponto e vírgula e constrói automaticamente uma rede dirigida com três camadas:
+O módulo `src/divulgacao_youtube_instagram.py` lê o CSV separado por ponto e vírgula e constrói uma rede dirigida com três camadas:
 
 1. Rede social (YouTube ou Instagram) → perfil/canal;
 2. Perfil/canal → plataforma de apostas.
 
 O peso da aresta entre perfil e plataforma corresponde à quantidade de registros coletados para aquela relação. Registros classificados como “Não identificada” são mantidos na contagem descritiva, mas não geram um vértice genérico de plataforma. Registros repetidos não são removidos automaticamente: cada linha da base original é considerada um registro da coleta.
 
-Os resultados são salvos em `outputs/base2/`:
+Os resultados são salvos em `outputs/divulgacao_youtube_instagram/`:
 
-- `grafo_base2.gexf`: grafo para importação e edição no Gephi;
+- `grafo_divulgacao_youtube_instagram.gexf`: grafo para importação e edição no Gephi;
 - `vertices.csv` e `arestas.csv`: tabelas de vértices e arestas;
-- `metricas.json`: métricas e resumo por rede social;
+- `busca_largura.csv`: ordem dos vértices visitados pela BFS a partir de cada rede social;
 - `ranking_perfis.csv` e `ranking_plataformas.csv`: tabelas de frequência;
-- `grafo_base2_python.png`: visualização geral gerada pelo Python;
-- `publicacoes_por_perfil.png`, `publicacoes_por_plataforma.png` e `registros_por_rede.png`: gráficos descritivos.
 
-O arquivo final `outputs/grafo_base2.pdf`, organizado anteriormente no Gephi, é preservado. A visualização gerada pelo Python é uma representação reprodutível de apoio e não substitui o layout final do Gephi.
+O arquivo final `outputs/grafo_base2.pdf`, organizado no Gephi, é preservado. O script não gera uma segunda imagem do grafo; ele exporta a estrutura e os atributos da BFS para o GEXF.
 
 **Limitação de coleta:** a identificação de plataformas depende da disponibilidade e da clareza dos conteúdos públicos observados. Conteúdos temporários, como Stories, publicações antigas indisponíveis e divulgações sem identificação explícita podem dificultar a identificação. Portanto, diferenças entre YouTube e Instagram na quantidade de registros identificados não devem ser interpretadas isoladamente como diferenças na quantidade real de publicidade ou disseminação em cada rede.
 
