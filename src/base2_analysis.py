@@ -105,7 +105,14 @@ def gerar_tabelas(grafo: nx.DiGraph, dados: pd.DataFrame) -> None:
 
     vertices = []
     for no, atributos in grafo.nodes(data=True):
-        vertices.append({"id": no, **atributos})
+        vertices.append({
+            "id": no,
+            **atributos,
+            "grau_entrada": grafo.in_degree(no),
+            "grau_saida": grafo.out_degree(no),
+            "forca_entrada": grafo.in_degree(no, weight="weight"),
+            "forca_saida": grafo.out_degree(no, weight="weight"),
+        })
     pd.DataFrame(vertices).to_csv(
         PASTA_SAIDA / "vertices.csv", index=False, encoding="utf-8-sig"
     )
@@ -181,6 +188,11 @@ def calcular_metricas(grafo: nx.DiGraph, dados: pd.DataFrame) -> dict:
             if perfis.shape[0] and plataformas else 0
         ),
         "peso_total_das_relacoes_perfil_plataforma": int(relacoes["peso"].sum()),
+        "peso_minimo_relacao_perfil_plataforma": int(relacoes["peso"].min()) if len(relacoes) else 0,
+        "peso_maximo_relacao_perfil_plataforma": int(relacoes["peso"].max()) if len(relacoes) else 0,
+        "peso_medio_relacao_perfil_plataforma": round(float(relacoes["peso"].mean()), 2) if len(relacoes) else 0,
+        "peso_mediano_relacao_perfil_plataforma": float(relacoes["peso"].median()) if len(relacoes) else 0,
+        "grafo_dag": bool(nx.is_directed_acyclic_graph(grafo)),
         "distribuicao_por_rede": distribuicao_redes,
     }
     return metricas
