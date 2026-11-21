@@ -1,12 +1,10 @@
 """Prepara versões agregadas das Bases 1 e 2 para depósito público no Zenodo.
 
 Não exporta respostas individuais, nomes de perfis, URLs, títulos ou links
-de publicações. Os arquivos são resumos agregados e não substituem as bases
-originais utilizadas internamente para construir os grafos.
+de publicações. A Base 2 usa o campo ID como identificador interno de perfil;
+esse identificador é contado apenas durante a agregação e não é exportado.
 """
-
 from pathlib import Path
-import re
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent
@@ -20,19 +18,10 @@ COLUNA_CANAIS = (
     "Qual foi a principal forma pela qual você teve contato "
     "com esse tipo de conteúdo?"
 )
-
 CANAIS = [
-    "Instagram",
-    "YouTube",
-    "Influenciadores",
-    "Amigos/conhecidos",
-    "TikTok",
-    "Sites esportivos",
-    "Facebook",
-    "Outro",
-    "X/Twitter",
+    "Instagram", "YouTube", "Influenciadores", "Amigos/conhecidos",
+    "TikTok", "Sites esportivos", "Facebook", "Outro", "X/Twitter",
 ]
-
 CORRECOES = {
     "Amingos/conhecidos": "Amigos/conhecidos",
     "SItes esportivos": "Sites esportivos",
@@ -43,7 +32,6 @@ def preparar_base1() -> None:
     """Gera frequências agregadas dos canais, sem linhas por participante."""
     if not ARQUIVO_BASE1.exists():
         raise FileNotFoundError(f"Arquivo não encontrado: {ARQUIVO_BASE1}")
-
     dados = pd.read_excel(ARQUIVO_BASE1)
     if COLUNA_CANAIS not in dados.columns:
         raise ValueError(f"Coluna esperada não encontrada: {COLUNA_CANAIS}")
@@ -55,24 +43,23 @@ def preparar_base1() -> None:
             if canal in frequencias:
                 frequencias[canal] += 1
 
-    total_participantes = int(len(dados))
+    total = int(len(dados))
     resultado = pd.DataFrame([
         {
             "canal": canal,
             "participantes_que_mencionaram": quantidade,
             "percentual_dos_participantes": (
-                round(100 * quantidade / total_participantes, 2)
-                if total_participantes else 0
+                round(100 * quantidade / total, 2) if total else 0
             ),
-            "total_participantes_questionario": total_participantes,
+            "total_participantes_questionario": total,
         }
         for canal, quantidade in frequencias.items()
     ])
     resultado.to_csv(
         SAIDA / "base1_frequencia_canais.csv",
-        index=False,
-        encoding="utf-8-sig",
+        index=False, encoding="utf-8-sig",
     )
+    print(f"Base 1: {total} participantes; {len(resultado)} canais agregados.")
 
 
 def normalizar_rede(valor: str) -> str:
@@ -96,7 +83,7 @@ def normalizar_plataforma(valor: str) -> str:
 
 
 def preparar_base2() -> None:
-    """Gera contagens agregadas por rede e plataforma, sem perfis/publicações."""
+    """Agrupa registros por rede/plataforma e conta perfis pelo ID interno."""
     if not ARQUIVO_BASE2.exists():
         raise FileNotFoundError(f"Arquivo não encontrado: {ARQUIVO_BASE2}")
 
@@ -113,20 +100,42 @@ def preparar_base2() -> None:
     if dados is None:
         raise UnicodeError("Não foi possível ler o CSV da Base 2.") from erro
 
-    obrigatorias = {"ID", "Rede", "Casa de Aposta"}
+    obrigatorias = {"ID", "Rede", "Canal", "Casa de Aposta"}
     faltantes = obrigatorias.difference(dados.columns)
     if faltantes:
         raise ValueError(
             "Colunas ausentes na Base 2: " + ", ".join(sorted(faltantes))
         )
 
+    dados["ID"] = dados["ID"].fillna("").str.strip()
+    dados["Canal"] = dados["Canal"].fillna("").str.strip()
+    if (dados["ID"] == "").any() or (dados["Canal"] == "").any():
+        raise ValueError("Há registros sem ID ou sem nome de perfil/canal.")
+
     dados["Rede"] = dados["Rede"].fillna("").map(normalizar_rede)
     dados["Casa de Aposta"] = (
         dados["Casa de Aposta"].fillna("").map(normalizar_plataforma)
     )
 
-    # A saída contém somente totais por rede/plataforma. Nenhum identificador
-    # de perfil, nome, URL, título, link ou descrição de publicação é exportado.
+    # Confirma que cada ID interno identifica um único perfil e uma única rede.
+    validacao = dados.groupby("ID").agg(
+        nomes=("Canal", "nunique"),
+        redes=("Rede", "nunique"),
+    )
+    inconsistentes = validacao[
+        (validacao["nomes"] != 1) | (validacao["redes"] != 1)
+    ]
+    if not inconsistentes.empty:
+        raise ValueError(
+            "Um ou mais IDs estão associados a nomes ou redes diferentes: "
+            + ", ".join(inconsistentes.index.astype(str).tolist())
+        )
+
+    total_registros = len(dados)
+    total_perfis = dados["ID"].nunique()
+
+    # ID é a chave interna atribuída a cada perfil na planilha.
+    # Contamos IDs distintos dentro de cada grupo, mas nunca os exportamos.
     resultado = (
         dados.groupby(["Rede", "Casa de Aposta"], dropna=False)
         .agg(
@@ -138,12 +147,28 @@ def preparar_base2() -> None:
             "Rede": "rede_social",
             "Casa de Aposta": "plataforma",
         })
-        .sort_values(["rede_social", "quantidade_registros"], ascending=[True, False])
+        .sort_values(
+            ["rede_social", "quantidade_registros"],
+            ascending=[True, False],
+        )
     )
+
+    if int(resultado["quantidade_registros"].sum()) != total_registros:
+        raise RuntimeError("A soma dos registros agregados não confere.")
+    if int(resultado["quantidade_perfis_distintos"].sum()) < total_perfis:
+        raise RuntimeError("A contagem agregada de perfis não confere.")
+
     resultado.to_csv(
         SAIDA / "base2_frequencia_plataformas_por_rede.csv",
-        index=False,
-        encoding="utf-8-sig",
+        index=False, encoding="utf-8-sig",
+    )
+    print(
+        f"Base 2: {total_registros} registros; {total_perfis} perfis "
+        f"distintos; {dados['Rede'].nunique()} redes."
+    )
+    print(
+        "Validação: soma dos registros nas categorias = "
+        f"{int(resultado['quantidade_registros'].sum())}."
     )
 
 
