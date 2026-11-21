@@ -29,7 +29,8 @@ Os arquivos agregados permitem consultar frequências e distribuições, mas nã
 Disseminacao-Jogos-de-Azar/
 ├── data/                         # Dados de entrada locais (não versionados)
 ├── docs/
-│   └── README_ZENODO.md           # Informações sobre o depósito dos dados
+│   ├── README_ZENODO.md           # Informações sobre o depósito dos dados
+│   └── figuras_tabelas_overleaf.tex # Figuras e tabelas para inclusão no Overleaf
 ├── outputs/
 │   ├── questionario/              # Resultados da Base 1
 │   ├── divulgacao_youtube_instagram/ # Resultados da Base 2
