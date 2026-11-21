@@ -1,0 +1,3 @@
+algoritmo,vertices_grafo,arestas_grafo,tempo_mediano_ms,tempo_medio_ms,vertices_visitados,repeticoes
+BFS,118,300,0.044049500000000005,0.051646647,103,1000
+DFS,118,300,0.050475500000000006,0.053384495,103,1000
