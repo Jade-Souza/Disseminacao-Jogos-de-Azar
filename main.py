@@ -45,7 +45,7 @@ def executar_base1():
 
 def executar_base2():
     """Executa a análise dirigida de três camadas (Base 2)."""
-    from src.base2_analysis import executar_analise
+    from src.divulgacao_youtube_instagram import executar_analise
     executar_analise()
 
 
