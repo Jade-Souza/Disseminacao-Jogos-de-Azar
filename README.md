@@ -10,6 +10,17 @@ As bases são analisadas separadamente porque representam unidades e relações 
 - **Base 2 — YouTube e Instagram:** grafo dirigido de três camadas, com relações entre rede social, perfil/canal e plataforma de apostas.
 - **Base 3 — LENAD III:** análise estatística descritiva de indicadores e consequências relacionadas às apostas. Não é convertida em grafo.
 
+## Dados para consulta e reutilização
+
+As versões agregadas das Bases 1 (questionário) e 2 (divulgação no YouTube e Instagram) estão disponíveis publicamente no Zenodo:
+
+- **DOI:** [10.5281/zenodo.24422317](https://doi.org/10.5281/zenodo.24422317)
+- **Registro no Zenodo:** https://zenodo.org/records/24422317
+
+O depósito contém tabelas agregadas, sem respostas individuais do questionário, identificadores de participantes, nomes de perfis ou links de publicações. A Base 3 (LENAD III) não faz parte desse depósito.
+
+Os arquivos agregados permitem consultar frequências e distribuições, mas não permitem reconstruir integralmente os grafos originais nem reproduzir todas as operações realizadas sobre os dados brutos. Consulte a descrição do registro no Zenodo para conhecer o conteúdo e as limitações dos arquivos.
+
 ## Estrutura do projeto
 
 - `main.py`: ponto de entrada das análises das Bases 1 e 2.
