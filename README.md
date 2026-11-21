@@ -1,116 +1,113 @@
 # Disseminação dos Jogos de Azar Online no Brasil
 
-Projeto acadêmico que investiga a disseminação de conteúdos relacionados a jogos de azar online por meio da Teoria dos Grafos e de análise estatística descritiva.
+Projeto acadêmico que investiga a disseminação de conteúdos relacionados a jogos de azar online no Brasil, utilizando a Teoria dos Grafos e análise estatística descritiva.
 
-## Organização das bases
+## Dados da pesquisa
 
-As bases são analisadas separadamente porque representam unidades e relações diferentes:
+As bases são analisadas separadamente, pois possuem unidades de análise e objetivos diferentes:
 
-- **Base 1 — Questionário:** grafo bipartido não dirigido entre participantes e canais de contato/exposição.
-- **Base 2 — YouTube e Instagram:** grafo dirigido de três camadas, com relações entre rede social, perfil/canal e plataforma de apostas.
-- **Base 3 — LENAD III:** análise estatística descritiva de indicadores e consequências relacionadas às apostas. Não é convertida em grafo.
+| Base | Conteúdo | Abordagem |
+|---|---|---|
+| **Base 1 — Questionário** | Respostas sobre canais de contato com conteúdos relacionados a jogos de azar online. | Grafo bipartido não dirigido e análise de métricas. |
+| **Base 2 — YouTube e Instagram** | Registros de divulgação de plataformas de apostas em redes sociais. | Grafo dirigido em três camadas: rede social, perfil/canal e plataforma. |
+| **Base 3 — LENAD III** | Indicadores estatísticos relacionados a apostas e suas consequências. | Análise estatística descritiva, sem construção de grafo. |
 
-## Dados para consulta e reutilização
+### Dados públicos
 
-As versões agregadas das Bases 1 (questionário) e 2 (divulgação no YouTube e Instagram) estão disponíveis publicamente no Zenodo:
+As versões agregadas das Bases 1 e 2 estão disponíveis no Zenodo:
 
 - **DOI:** [10.5281/zenodo.24422317](https://doi.org/10.5281/zenodo.24422317)
-- **Registro no Zenodo:** https://zenodo.org/records/24422317
+- **Registro:** [Consultar e acessar os arquivos no Zenodo](https://zenodo.org/records/24422317)
 
-O depósito contém tabelas agregadas, sem respostas individuais do questionário, identificadores de participantes, nomes de perfis ou links de publicações. A Base 3 (LENAD III) não faz parte desse depósito.
+O depósito disponibiliza tabelas agregadas. Não contém respostas individuais, identificadores de participantes, nomes de perfis ou links de publicações. A Base 3 (LENAD III) não faz parte desse depósito.
 
-Os arquivos agregados permitem consultar frequências e distribuições, mas não permitem reconstruir integralmente os grafos originais nem reproduzir todas as operações realizadas sobre os dados brutos. Consulte a descrição do registro no Zenodo para conhecer o conteúdo e as limitações dos arquivos.
+Os arquivos agregados permitem consultar frequências e distribuições, mas não permitem reconstruir integralmente os grafos originais nem reproduzir todas as operações realizadas com os dados de entrada.
 
 ## Estrutura do projeto
 
-- `main.py`: ponto de entrada das análises das Bases 1 e 2.
-- `src/graph_builder.py`: carrega a planilha do questionário e constrói o grafo da Base 1.
-- `src/bfs.py` e `src/dfs.py`: implementações de BFS e DFS para a Base 1.
-- `src/metrics.py`: métricas estruturais da Base 1.
-- `src/visualization.py`: gráficos estatísticos da Base 1.
-- `src/divulgacao_youtube_instagram.py`: leitura, construção, BFS, métricas e exportação do grafo de divulgação.
-- `src/lenad_visualization.py`: gráficos estatísticos do LENAD III.
-- `data/dados_originais.xlsx`: dados do questionário (Base 1).
-- `data/Pasta(base_youtube_instagram).csv`: registros coletados no YouTube e Instagram (Base 2).
-- `data/base_estruturada_LENAD_III.xlsx`: planilha estruturada do LENAD III (Base 3).
-
-## Requisitos e instalação
-
-Python 3.10 ou superior.
-
-```bash
-pip install -r requirements.txt
+```text
+Disseminacao-Jogos-de-Azar/
+├── data/                         # Dados de entrada locais (não versionados)
+├── docs/
+│   └── README_ZENODO.md           # Informações sobre o depósito dos dados
+├── outputs/
+│   ├── questionario/              # Resultados da Base 1
+│   ├── divulgacao_youtube_instagram/ # Resultados da Base 2
+│   ├── lenad/                     # Gráficos da Base 3
+│   ├── desempenho/                # Resultados dos benchmarks
+│   └── grafo_base2.pdf            # Visualização final organizada no Gephi
+├── src/
+│   ├── bfs.py                     # Busca em largura
+│   ├── dfs.py                     # Busca em profundidade
+│   ├── graph_builder.py           # Construção do grafo da Base 1
+│   ├── metrics.py                 # Métricas dos grafos
+│   ├── visualization.py           # Visualizações da Base 1
+│   ├── divulgacao_youtube_instagram.py # Análise da Base 2
+│   └── lenad_visualization.py     # Gráficos estatísticos da Base 3
+├── .gitignore                    # Arquivos e pastas ignorados pelo Git
+├── benchmark_bfs_dfs.py          # Experimentos de desempenho BFS/DFS
+├── main.py                       # Ponto de entrada das Bases 1 e 2
+├── Makefile                      # Instalação, limpeza e execução
+└── requirements.txt              # Dependências Python
 ```
 
-## Executar as análises
+> A pasta `data/` é necessária para executar as análises, mas não é publicada neste repositório. Os arquivos de entrada devem ser obtidos e colocados localmente nessa pasta, respeitando os nomes e formatos esperados pelos scripts. O conteúdo agregado do Zenodo não substitui todos os dados de entrada necessários para reproduzir os grafos completos.
 
-Na raiz do repositório:
+## Requisitos
 
-```bash
-# Base 1 — questionário (comportamento padrão)
-python main.py
+- Python 3.10 ou superior;
+- GNU Make;
+- Dados de entrada disponibilizados localmente na pasta `data/`.
 
-# Base 2 — YouTube e Instagram
-python main.py --base 2
+## Instalação e execução
 
-# Executar as duas bases
-python main.py --base todas
-
-# Somente LENAD III (Base 3)
-python src/lenad_visualization.py
-```
-
-### Base 1 — Questionário
-
-A execução gera o GEXF e os gráficos em `outputs/questionario/`. O GEXF pode ser importado no Gephi para configurar a disposição espacial, cores, tamanhos e rótulos da visualização final.
-
-### Divulgação no YouTube e Instagram
-
-O módulo `src/divulgacao_youtube_instagram.py` lê o CSV separado por ponto e vírgula e constrói uma rede dirigida com três camadas:
-
-1. Rede social (YouTube ou Instagram) → perfil/canal;
-2. Perfil/canal → plataforma de apostas.
-
-O peso da aresta entre perfil e plataforma corresponde à quantidade de registros coletados para aquela relação. Registros classificados como “Não identificada” são mantidos na contagem descritiva, mas não geram um vértice genérico de plataforma. Registros repetidos não são removidos automaticamente: cada linha da base original é considerada um registro da coleta.
-
-Os resultados são salvos em `outputs/divulgacao_youtube_instagram/`:
-
-- `grafo_divulgacao_youtube_instagram.gexf`: grafo para importação e edição no Gephi;
-- `vertices.csv` e `arestas.csv`: tabelas de vértices e arestas;
-- `busca_largura.csv`: ordem dos vértices visitados pela BFS a partir de cada rede social;
-- `ranking_perfis.csv` e `ranking_plataformas.csv`: tabelas de frequência;
-
-O arquivo final `outputs/grafo_base2.pdf`, organizado no Gephi, é preservado. O script não gera uma segunda imagem do grafo; ele exporta a estrutura e os atributos da BFS para o GEXF.
-
-**Limitação de coleta:** a identificação de plataformas depende da disponibilidade e da clareza dos conteúdos públicos observados. Conteúdos temporários, como Stories, publicações antigas indisponíveis e divulgações sem identificação explícita podem dificultar a identificação. Portanto, diferenças entre YouTube e Instagram na quantidade de registros identificados não devem ser interpretadas isoladamente como diferenças na quantidade real de publicidade ou disseminação em cada rede.
-
-### Base 3 — LENAD III
-
-A análise do LENAD III utiliza estatísticas agregadas publicadas no material de referência e transcritas para a planilha estruturada. Não estima relações individuais, não calcula causalidade e não trata o PGSI como diagnóstico clínico.
-
-Para executar:
+Na raiz do projeto, execute os comandos abaixo, nesta ordem:
 
 ```bash
-python src/lenad_visualization.py
+make
+make clean
+make run
 ```
 
-Também é possível indicar outros caminhos:
+O que cada comando faz:
+
+| Comando | Função |
+|---|---|
+| `make` | Instala as dependências listadas em `requirements.txt`. Prioriza o Python do ambiente virtual `.venv`, caso exista. |
+| `make clean` | Remove os resultados gerados das análises e os caches, preservando os dados de entrada e o arquivo `outputs/grafo_base2.pdf`. |
+| `make run` | Executa as análises das Bases 1 e 2, os gráficos da Base 3 e os benchmarks de BFS e DFS. |
+
+### Execuções individuais
+
+Também é possível executar partes do projeto separadamente:
 
 ```bash
-python src/lenad_visualization.py --entrada caminho/da/planilha.xlsx --saida outputs
+make run-grafos  # Bases 1 e 2
+make run-lenad   # Base 3 — LENAD III
+make benchmark   # Desempenho de BFS e DFS
 ```
 
-Os gráficos são salvos em PDF na pasta `outputs/lenad/`.
+## Resultados gerados
 
-## Cuidados metodológicos
+Os resultados são organizados nas pastas dentro de `outputs/`:
 
-- A pesquisa por questionário utiliza amostra por conveniência; seus resultados descrevem os respondentes e não devem ser apresentados como estimativas representativas de toda a população brasileira.
+- **`outputs/questionario/`**: grafo, métricas e visualizações da Base 1.
+- **`outputs/divulgacao_youtube_instagram/`**: estrutura do grafo, tabelas de vértices e arestas, resultados da BFS e rankings da Base 2.
+- **`outputs/lenad/`**: gráficos estatísticos da Base 3.
+- **`outputs/desempenho/`**: resultados dos experimentos de desempenho.
+
+A visualização final da Base 2, organizada no Gephi, é mantida em `outputs/grafo_base2.pdf`. O script da Base 2 exporta a estrutura e os atributos do grafo, sem gerar uma segunda imagem dessa visualização.
+
+## Metodologia e limitações
+
+- A pesquisa por questionário utiliza amostra por conveniência. Seus resultados descrevem os respondentes e não devem ser apresentados como estimativas representativas de toda a população brasileira.
 - As arestas do questionário representam respostas de exposição informadas pelos participantes. Não comprovam, isoladamente, influência causal nem caminhos reais de disseminação.
 - Na Base 2, os registros correspondem ao material coletado e classificado, não ao universo completo de publicações de cada rede social.
 - As datas da Base 2 correspondem às datas de publicação registradas na coleta.
-- As bases têm unidades de análise diferentes e devem ser interpretadas separadamente.
-- O PGSI é um instrumento de rastreamento/classificação de risco, não um diagnóstico clínico. Os denominadores variam entre tabelas; itens podem se sobrepor e associações observadas não demonstram causalidade.
+- Diferenças na quantidade de registros identificados entre YouTube e Instagram não devem ser interpretadas isoladamente como diferenças na quantidade real de publicidade em cada rede.
+- As bases possuem unidades de análise diferentes e devem ser interpretadas separadamente.
+- O PGSI é um instrumento de rastreamento/classificação de risco, não um diagnóstico clínico. Os denominadores podem variar entre tabelas, itens podem se sobrepor e associações observadas não demonstram causalidade.
 
 ## Reprodutibilidade
 
-Mantenha os dados de entrada utilizados na análise em `data/` e registre a origem, o período de coleta, os critérios de seleção e as limitações de cada base. Não remova ou deduplique registros brutos sem justificativa metodológica documentada.
+Os dados de entrada não são versionados neste repositório. Para executar as análises, mantenha os arquivos necessários na pasta local `data/`, conforme os nomes e formatos esperados pelos scripts. Consulte o código e a documentação do depósito no Zenodo para compreender a origem, o tratamento e as limitações dos dados disponibilizados publicamente.
