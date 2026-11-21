@@ -69,7 +69,7 @@ def construir_grafo(dados: pd.DataFrame) -> nx.DiGraph:
             link=link
         )
         grafo.add_edge(
-            f"rede::{rede}", no_perfil, peso=1,
+            f"rede::{rede}", no_perfil, weight=1, peso=1,
             tipo_relacao="rede_perfil"
         )
 
@@ -93,7 +93,7 @@ def construir_grafo(dados: pd.DataFrame) -> nx.DiGraph:
         identificador, casa, peso = relacao
         grafo.add_edge(
             f"perfil::{identificador}", f"casa::{casa}",
-            peso=int(peso), tipo_relacao="perfil_plataforma",
+            weight=int(peso), peso=int(peso), tipo_relacao="perfil_plataforma",
             rede=rede_por_id.get(identificador, "")
         )
 
