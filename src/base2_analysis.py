@@ -24,7 +24,23 @@ def carregar_dados(caminho: Path = ARQUIVO_ENTRADA) -> pd.DataFrame:
     if not caminho.exists():
         raise FileNotFoundError(f"Arquivo da Base 2 não encontrado: {caminho}")
 
-    dados = pd.read_csv(caminho, sep=";", encoding="utf-8-sig", dtype=str)
+    # A planilha exportada pode estar em UTF-8 ou Windows-1252
+    # (comum em CSVs salvos pelo Excel em português).
+    erro_utf8 = None
+    for codificacao in ("utf-8-sig", "cp1252", "latin-1"):
+        try:
+            dados = pd.read_csv(
+                caminho, sep=";", encoding=codificacao, dtype=str
+            )
+            break
+        except UnicodeDecodeError as erro:
+            erro_utf8 = erro
+    else:
+        raise UnicodeError(
+            f"Não foi possível decodificar o CSV {caminho}. "
+            "Salve-o como CSV UTF-8 ou verifique sua codificação."
+        ) from erro_utf8
+
     dados.columns = dados.columns.str.strip()
     faltantes = [coluna for coluna in COLUNAS if coluna not in dados.columns]
     if faltantes:
