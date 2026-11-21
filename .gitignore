@@ -12,8 +12,3 @@ __pycache__/
 # Arquivos locais
 .DS_Store
 *.log
-
-# Bases externas brutas e resultados intermediários locais
-data/youtube_ibict_original.tsv
-outputs/youtube/
-outputs/telegram/
