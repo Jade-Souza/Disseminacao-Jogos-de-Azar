@@ -1,0 +1,5 @@
+﻿base,origem,algoritmo,vertices_grafo,arestas_grafo,tempo_mediano_ms,tempo_medio_ms,vertices_visitados,repeticoes
+Base 1 - Questionário,Instagram,BFS,118,300,0.039447,0.040178995,103,1000
+Base 1 - Questionário,Instagram,DFS,118,300,0.047767,0.048421512,103,1000
+Base 2 - Divulgação,YouTube,BFS,47,52,0.006354,0.006450736,22,1000
+Base 2 - Divulgação,Instagram,BFS,47,52,0.007313,0.007634597,26,1000

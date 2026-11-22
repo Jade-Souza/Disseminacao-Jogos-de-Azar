@@ -1,13 +1,13 @@
 ﻿base,algoritmo,participantes,vertices_grafo,arestas_grafo,tempo_mediano_ms,tempo_medio_ms,vertices_visitados,repeticoes
-Grafos sintéticos - estrutura da Base 1,BFS,109,118,264,0.04432,0.05177603,118,200
-Grafos sintéticos - estrutura da Base 1,DFS,109,118,264,0.052739499999999995,0.05456481,118,200
-Grafos sintéticos - estrutura da Base 1,BFS,250,259,629,0.103188,0.106511915,259,200
-Grafos sintéticos - estrutura da Base 1,DFS,250,259,629,0.1181645,0.12200245,259,200
-Grafos sintéticos - estrutura da Base 1,BFS,500,509,1224,0.1934045,0.201832985,509,200
-Grafos sintéticos - estrutura da Base 1,DFS,500,509,1224,0.23424699999999998,0.24776182,509,200
-Grafos sintéticos - estrutura da Base 1,BFS,1000,1009,2465,0.3908995,0.399929455,1009,200
-Grafos sintéticos - estrutura da Base 1,DFS,1000,1009,2465,0.4801145,0.490767105,1009,200
-Grafos sintéticos - estrutura da Base 1,BFS,2000,2009,4995,0.809993,0.854502895,2009,200
-Grafos sintéticos - estrutura da Base 1,DFS,2000,2009,4995,0.9717165000000001,0.98628369,2009,200
-Grafos sintéticos - estrutura da Base 1,BFS,4000,4009,9984,1.606532,1.63523076,4009,200
-Grafos sintéticos - estrutura da Base 1,DFS,4000,4009,9984,1.9422005,1.996245285,4009,200
+Grafos sintéticos - estrutura da Base 1,BFS,109,118,264,0.0435585,0.044559605,118,200
+Grafos sintéticos - estrutura da Base 1,DFS,109,118,264,0.052039,0.05319254,118,200
+Grafos sintéticos - estrutura da Base 1,BFS,250,259,629,0.0977815,0.09924203,259,200
+Grafos sintéticos - estrutura da Base 1,DFS,250,259,629,0.116711,0.11764235,259,200
+Grafos sintéticos - estrutura da Base 1,BFS,500,509,1224,0.19106299999999998,0.192044025,509,200
+Grafos sintéticos - estrutura da Base 1,DFS,500,509,1224,0.236909,0.238254775,509,200
+Grafos sintéticos - estrutura da Base 1,BFS,1000,1009,2465,0.3941015,0.396227565,1009,200
+Grafos sintéticos - estrutura da Base 1,DFS,1000,1009,2465,0.487135,0.493478905,1009,200
+Grafos sintéticos - estrutura da Base 1,BFS,2000,2009,4995,0.7976624999999999,0.800776165,2009,200
+Grafos sintéticos - estrutura da Base 1,DFS,2000,2009,4995,0.9744075000000001,0.978575725,2009,200
+Grafos sintéticos - estrutura da Base 1,BFS,4000,4009,9984,1.6288205,1.64974245,4009,200
+Grafos sintéticos - estrutura da Base 1,DFS,4000,4009,9984,1.9657505,1.999597265,4009,200

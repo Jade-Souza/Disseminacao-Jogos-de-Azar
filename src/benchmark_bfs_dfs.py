@@ -34,7 +34,7 @@ REPETICOES_REAL = 1000
 REPETICOES_SINTETICO = 200
 TAMANHOS = [109, 250, 500, 1000, 2000, 4000]
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 PASTA_SAIDA = ROOT / "outputs" / "desempenho"
 
 

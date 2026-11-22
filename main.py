@@ -1,6 +1,9 @@
 """Ponto de entrada das análises das Bases 1 e 2."""
 
 import argparse
+from pathlib import Path
+
+import networkx as nx
 
 from src.graph_builder import carregar_dados, construir_grafo
 from src.bfs import busca_em_largura
@@ -11,8 +14,8 @@ from src.visualization import (
     gerar_grafico_faixa_etaria,
     gerar_grafico_exposicao,
 )
-from pathlib import Path
-import networkx as nx
+
+ROOT = Path(__file__).resolve().parent.parent
 
 
 def executar_base1():
@@ -31,7 +34,7 @@ def executar_base1():
 
     analisar_metricas(grafo)
 
-    pasta_outputs = Path("outputs") / "questionario"
+    pasta_outputs = ROOT / "outputs" / "questionario"
     pasta_outputs.mkdir(parents=True, exist_ok=True)
     caminho_gexf = pasta_outputs / "grafo_apostas.gexf"
     nx.write_gexf(grafo, caminho_gexf)
@@ -40,7 +43,7 @@ def executar_base1():
     gerar_grafico_faixa_etaria(dados)
     gerar_grafico_exposicao(dados)
 
-    print("\nArquivos da Base 1 salvos em outputs/questionario/.")
+    print(f"\nArquivos da Base 1 salvos em {pasta_outputs}/.")
 
 
 def executar_base2():

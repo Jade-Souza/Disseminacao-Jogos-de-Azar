@@ -4,7 +4,7 @@
 PYTHON ?= $(if $(wildcard .venv/bin/python),.venv/bin/python,python3)
 PIP := $(PYTHON) -m pip
 
-.PHONY: all install clean run run-grafos run-lenad benchmark
+.PHONY: all install clean run run-grafos run-lenad benchmark zenodo
 
 # Comando padrão: instala as dependências.
 all: install
@@ -14,8 +14,8 @@ install:
 
 # Remove somente resultados gerados e caches.
 # Preserva os dados de entrada e os arquivos finais do Gephi.
-# outputs/grafo_base1_gephi.png
-# outputs/grafo_base2.pdf
+# outputs/grafo_gephi.png
+# outputs/grafo_apostas2.pdf
 clean:
 	rm -rf outputs/questionario
 	rm -rf outputs/divulgacao_youtube_instagram
@@ -27,13 +27,17 @@ clean:
 run: run-grafos run-lenad benchmark
 
 # Bases 1 e 2: questionário e divulgação no YouTube/Instagram.
-run-grafos:
-	$(PYTHON) main.py --base todas
+run-grafos: install
+	PYTHONPATH=. $(PYTHON) main.py --base todas
 
 # Base 3: análise estatística do LENAD III.
-run-lenad:
-	$(PYTHON) src/lenad_visualization.py
+run-lenad: install
+	PYTHONPATH=. $(PYTHON) src/lenad_visualization.py
 
 # Avaliação de desempenho de BFS e DFS.
-benchmark:
-	$(PYTHON) benchmark_bfs_dfs.py
+benchmark: install
+	PYTHONPATH=. $(PYTHON) src/benchmark_bfs_dfs.py
+
+# Gera o pacote/arquivo destinado ao Zenodo sob demanda.
+zenodo: install
+	PYTHONPATH=. $(PYTHON) src/zenodo.py
