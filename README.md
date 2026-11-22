@@ -54,7 +54,7 @@ Disseminacao-Jogos-de-Azar/
 ├── .gitignore                          # Arquivos e pastas ignorados pelo Git
 ├── main.py                             # Ponto de entrada das Bases 1 e 2
 ├── pratica.pdf                         # Instruções da atividade prática
-├── artigo.pdf                          # Artigo final compilado
+├── Disseminação e Exposição a JOgos de Aposta no Brasik.pdf                          # Artigo final compilado
 ├── Makefile                            # Instalação, limpeza e execução
 └── requirements.txt                    # Dependências Python
 ```
