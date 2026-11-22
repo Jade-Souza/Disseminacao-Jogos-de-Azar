@@ -13,6 +13,7 @@ import networkx as nx
 import pandas as pd
 
 from src.bfs import busca_em_largura
+from src.base2_visualization import gerar_visualizacoes
 
 ROOT = Path(__file__).resolve().parents[1]
 ARQUIVO_ENTRADA = ROOT / "data" / "Pasta(base_youtube_instagram).csv"
@@ -368,6 +369,9 @@ def executar_analise(caminho: Path = ARQUIVO_ENTRADA) -> nx.DiGraph:
     # Calcula e apresenta as métricas no terminal; os detalhes tabulares
     # ficam nos CSVs, sem gerar um arquivo JSON redundante.
     metricas = calcular_metricas(grafo, dados)
+
+    # Gera as visualizações da Base 2 na mesma pasta dos demais resultados.
+    gerar_visualizacoes(grafo, dados, PASTA_SAIDA)
 
     # O GEXF contém a estrutura do grafo e também a ordem de visita da BFS.
     nx.write_gexf(
